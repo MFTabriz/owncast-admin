@@ -1,8 +1,9 @@
 import React from 'react';
-import { Table, Tag, Typography } from 'antd';
+import { Button, Table, Tag, Typography } from 'antd';
 import Linkify from 'react-linkify';
 import { SortOrder } from 'antd/lib/table/interface';
 import format from 'date-fns/format';
+import { LOGS_CLEAR, fetchData } from '../utils/apis';
 
 const { Title } = Typography;
 
@@ -26,6 +27,16 @@ interface Props {
   logs: object[];
   pageSize: number;
 }
+
+
+const clearLogs = async () => {
+  try {
+    await fetchData(LOGS_CLEAR);
+  } catch (error) {
+    console.log('==== error', error);
+  }
+};
+ 
 
 export default function LogTable({ logs, pageSize }: Props) {
   if (!logs?.length) {
@@ -76,6 +87,11 @@ export default function LogTable({ logs, pageSize }: Props) {
   return (
     <div className="logs-section">
       <Title>Logs</Title>
+      <Button 
+        type="danger"
+        disabled={(!logs?.length}
+        onClick={clearLogs}
+          >Clear</Button>
       <Table
         size="middle"
         dataSource={logs}

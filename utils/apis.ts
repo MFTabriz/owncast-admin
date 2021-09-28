@@ -40,6 +40,9 @@ export const HARDWARE_STATS = `${API_LOCATION}hardwarestats`;
 // Get all logs
 export const LOGS_ALL = `${API_LOCATION}logs`;
 
+// Clear all logs
+export const LOGS_CLEAR = `${API_LOCATION}logs/clear`;
+
 // Get warnings + errors
 export const LOGS_WARN = `${API_LOCATION}logs/warnings`;
 
