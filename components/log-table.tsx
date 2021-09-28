@@ -89,7 +89,7 @@ export default function LogTable({ logs, pageSize }: Props) {
       <Title>Logs</Title>
       <Button 
         type="danger"
-        disabled={(!logs?.length}
+        disabled={!logs?.length}
         onClick={clearLogs}
           >Clear</Button>
       <Table
